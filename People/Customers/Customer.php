@@ -1,7 +1,8 @@
 <?php
-namespace People;
+namespace People\Customers;
 use People\Person;
-use Restaurant\Restaurant;
+use Restaurants\Restaurant;
+
 class Customer extends Person{
     protected string $name;
     protected int $age;

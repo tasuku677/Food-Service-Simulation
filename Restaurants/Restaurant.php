@@ -1,9 +1,9 @@
 <?php
-namespace Restaurant;
+namespace Restaurants;
 
 use FoodItems\FoodItem;
 use Orders\Invoice;
-use People\Employee;
+use People\Employees\Employee;
 
 class Restaurant{
     protected FoodItem $menu;
@@ -16,5 +16,6 @@ class Restaurant{
 
     public function order(string $categories):Invoice{
 
+        return new Invoice();
     }
 }

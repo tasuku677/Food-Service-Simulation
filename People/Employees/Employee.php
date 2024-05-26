@@ -1,5 +1,5 @@
 <?php
-namespace People;
+namespace People\Employees;
 
 use People\Person;
 
