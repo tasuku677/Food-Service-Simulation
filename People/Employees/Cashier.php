@@ -16,7 +16,7 @@ class Cashier extends Employee{
     }
 
     public function generateOrder(array $categories, Restaurant $restaurant):FoodOrder{
-        return new FoodOrder(, date("D M d, Y G:i"));
+        return new FoodOrder( , date("D M d, Y G:i"));
     }
 
 

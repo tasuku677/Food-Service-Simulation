@@ -1,5 +1,5 @@
 <?php
-namespace Incoices;
+namespace Invoices;
 
 class Invoice{
     protected float $finalPrice;
@@ -12,5 +12,8 @@ class Invoice{
         $this->$estimatedTimeMinutes = $estimatedTimeMinutes;
     }
     
+    public function __toString():string{
+        return "finalPrice ".$this->finalPrice.", orderTime is ".$this->orderTime.", will be made in ".$this->estimatedTimeMinutes;
+    }
 }
 

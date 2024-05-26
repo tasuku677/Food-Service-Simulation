@@ -13,7 +13,7 @@ class Customer extends Person{
         parent::__construct($name, $age, $address);
     }
 
-    public function interestedCategories(Restaurant $restaurant):string{
+    public function interestedCategories(Restaurant $restaurant):array{
         return random_menu($restaurant->menu);
     }
 
@@ -26,13 +26,15 @@ class Customer extends Person{
     }
 }
 
-function random_menu(array $menuArray){
+//渡されたメニュー配列の中からランダムな個数だけランダムなメニューを選び、配列として返す関数
+function random_menu(array $menuArray):array{
     $maxNum = count($menuArray);
     $count = random_int(1, $maxNum-1);
     $items = array_rand($menuArray, $count);
     // $items が単一のキーの場合
     if (!is_array($items)) {
-        return $menuArray[$items];
+        $result[] = $menuArray[$items];
+        return $result;
     } else {
         // $items がキーの配列の場合
         $result = [];
