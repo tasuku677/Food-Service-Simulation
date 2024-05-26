@@ -7,9 +7,13 @@ abstract class FoodItem{
     protected float $price;
 
     public function __construct(string $name, string $description, float $price){
-        $this->$name = $name;
-        $this->$description = $description;
-        $this->$price = $price;
+        $this->name = $name;
+        $this->description = $description;
+        $this->price = $price;
     }
     abstract public static function getCategory():string;
+
+    public function __toString() :string{
+        return $this->name;
+    }
 }
