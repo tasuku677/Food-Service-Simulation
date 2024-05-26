@@ -1,5 +1,5 @@
 <?php
-namespace FoodItems;
+namespace Orders;
 
 class Invoice{
     protected float $finalPrice;

@@ -12,5 +12,7 @@ class HawaianPizza extends FoodItem{
         parent::__construct($name, $description, $price);
     }
 
-    static function 
+    public static function getCategory():string{
+        return self::CATEGORY;
+    } 
 }
