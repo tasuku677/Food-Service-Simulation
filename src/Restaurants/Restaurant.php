@@ -6,14 +6,19 @@ use Invoices\Invoice;
 use People\Employees\Employee;
 
 class Restaurant{
-    protected array $menu;
-    protected array $employees;
+    private array $menu;
+    private array $employees;
     
     public function __construct(array $menu, array $employees){
-        $this->$menu = $menu;
-        $this->$employees = $employees;
+        $this->menu = $menu;
+        $this->employees = $employees;
     }
-
+    public function getMenu():array{
+        return $this->menu;
+    }
+    public function getEmployees():array{
+        return $this->employees;
+    }
     public function order(array $categories):Invoice{
         $finalPrice = 0;
         foreach($categories as $category => $number){

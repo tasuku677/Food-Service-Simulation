@@ -12,8 +12,11 @@ abstract class FoodItem{
         $this->price = $price;
     }
     abstract public static function getCategory():string;
-
+    
+    public function getPrice(): float {
+        return $this->price;
+    } 
     public function __toString() :string{
-        return $this->name;
+        return $this->name . ", " . $this->description . ", " . $this->price;
     }
 }

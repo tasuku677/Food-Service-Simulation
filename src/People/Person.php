@@ -8,8 +8,8 @@ abstract class Person{
     protected string $address;
 
     public function __construct(string $name,int $age,string $address){
-        $this->$name = $name;
-        $this->$age = $age;
+        $this->name = $name;
+        $this->age = $age;
         $this->address = $address;
     }
 }

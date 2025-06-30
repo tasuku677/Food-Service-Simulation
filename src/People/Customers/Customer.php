@@ -5,42 +5,33 @@ use Restaurants\Restaurant;
 use Invoices\Invoice;
 
 class Customer extends Person{
-    protected string $name;
-    protected int $age;
-    protected string $address;
-
-    public function __construct(string $name,int $age,string $address){
+    private array $categories;
+    
+    public function __construct(string $name,int $age,string $address, array $categories){
         parent::__construct($name, $age, $address);
+        $this->categories = $categories;
     }
 
     public function interestedCategories(Restaurant $restaurant):array{
-        return random_menu($restaurant->menu);
+        $interested = [];
+        // print_r($restaurant->getMenu());
+        // print_r($this->categories);
+        foreach($this->categories as $category => $number){
+            if(array_key_exists($category, $restaurant->getMenu())){
+                $interested[$category] = $number;
+            }
+        }
+        // print_r($interested);
+        return $interested;
     }
 
-    public function order(Restaurant $restaurant, array $categories):Invoice{
+    public function order(Restaurant $restaurant, array $orderList):Invoice{
         $finalPrice = 0;
-        foreach($categories as $category => $number){
-            $finalPrice += $restaurant->menu[$category]->price * $number;
+        foreach($orderList as $category => $number){
+            $finalPrice += $restaurant->getMenu()[$category]->getPrice() * $number;
+            
         }
         return new Invoice($finalPrice, date("D M d, Y G:i"), random_int(1, 100));
     }
 }
 
-//渡されたメニュー配列の中からランダムな個数だけランダムなメニューを選び、配列として返す関数
-function random_menu(array $menuArray):array{
-    $maxNum = count($menuArray);
-    $count = random_int(1, $maxNum-1);
-    $items = array_rand($menuArray, $count);
-    // $items が単一のキーの場合
-    if (!is_array($items)) {
-        $result[] = $menuArray[$items];
-        return $result;
-    } else {
-        // $items がキーの配列の場合
-        $result = [];
-        foreach ($items as $key) {
-            $result[] = $menuArray[$key];
-        }
-        return $result;
-    }
-}

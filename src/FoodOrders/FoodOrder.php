@@ -3,8 +3,10 @@ namespace FoodOrders;
 use FoodItems\FoodItem;
 
 class FoodOrder{
+    /*@var FoodItem[] $items*/
     protected array $items;
     protected string $orderTime;
+    
 
     public function __construct(array $items, string $orderTime){
         $this->items = $items;

@@ -7,9 +7,9 @@ class Invoice{
     protected int $estimatedTimeMinutes;
 
     public function __construct(float $finalPrice, string $orderTime, int $estimatedTimeMinutes){
-        $this->$finalPrice = $finalPrice;
-        $this->$orderTime = $orderTime;
-        $this->$estimatedTimeMinutes = $estimatedTimeMinutes;
+        $this->finalPrice = $finalPrice;
+        $this->orderTime = $orderTime;
+        $this->estimatedTimeMinutes = $estimatedTimeMinutes;
     }
     
     public function __toString():string{

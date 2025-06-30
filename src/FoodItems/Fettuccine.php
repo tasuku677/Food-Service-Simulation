@@ -3,9 +3,6 @@ namespace FoodItems;
 use FoodItems\FoodItem;
 
 class Fettuccine extends FoodItem{
-    protected string $name;
-    protected string $description;
-    protected float $price;
     const CATEGORY = "Fettuccine";
 
     public function __construct($name, $description, $price){
